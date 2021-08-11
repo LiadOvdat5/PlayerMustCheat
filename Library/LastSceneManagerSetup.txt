@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/CoreGame.unity
+- path: Assets/Scenes/Nir's Scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
