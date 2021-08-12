@@ -1,56 +1,87 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private bool isDead = false;
+    
+    private Animator animator;
     Camera mainCamera;
     bool isCatching;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        animator = GetComponent<Animator>();
         mainCamera = FindObjectOfType<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (isDead)
+        {
+            return;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition)), Vector2.zero, 0);
+            RaycastHit2D hit = Physics2D.Raycast((Vector2) (Camera.main.ScreenToWorldPoint(Input.mousePosition)),
+                Vector2.zero, 0);
             if (hit)
             {
-                if (hit.collider.CompareTag("Player"))
+                if (hit.collider.gameObject == this.gameObject)
                 {
+                    animator.SetTrigger("PickUp");
+                    animator.SetBool("InAir", true);
                     isCatching = true;
                 }
             }
         }
-        else if(Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             isCatching = false;
+            animator.SetBool("InAir", false);
         }
+
         if (isCatching && Input.GetMouseButton(0))
         {
             Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             mouseWorldPos.z = 0;
-            transform.position = mouseWorldPos;   
+            transform.position = mouseWorldPos;
         }
     }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
         {
-            if (collision.gameObject.tag == "Obstacle")
+            if (other.gameObject.tag == "Obstacle")
             {
-                Destroy(gameObject);
+                Die();
             }
 
-            if (collision.gameObject.tag == "Finish Target")
+            if (other.gameObject.tag == "Finish Target")
             {
                 Debug.Log("you win ! ");
             }
         }
-    }   
+    }
+
+    private void Die()
+    {
+        isCatching = false;
+        animator.SetBool("InAir", false);
+        animator.ResetTrigger("Pickup");
+        animator.SetTrigger("Die");
+        isDead = true;
+    }
+
+    private void DestroyOnAnimationFinish()
+    {
+        Destroy(gameObject);
+    }
+}
+
+  
