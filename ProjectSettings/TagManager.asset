@@ -16,7 +16,7 @@ TagManager:
   - Background
   - Objects
   - Player
-  - 
+  - Openings
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 3022787049
+    locked: 0
+  - name: Openings
+    uniqueID: 1573015209
     locked: 0
   - name: Player
     uniqueID: 1313090893
