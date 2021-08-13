@@ -11,11 +11,16 @@ public class Player : MonoBehaviour
     Camera mainCamera;
     bool isCatching;
 
+    GameManager gameManager;
+    SceneLoader sceneLoader;
+
     // Start is called before the first frame update
     void Awake()
     {
         animator = GetComponent<Animator>();
         mainCamera = FindObjectOfType<Camera>();
+        gameManager = FindObjectOfType<GameManager>();
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -64,7 +69,9 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.tag == "Finish Target")
             {
-                Debug.Log("you win ! ");
+                Debug.Log("Dwarf saved ");
+                gameManager.AddSavedDwarf();
+                Destroy(gameObject);
             }
         }
     }
@@ -81,6 +88,7 @@ public class Player : MonoBehaviour
     private void DestroyOnAnimationFinish()
     {
         Destroy(gameObject);
+        sceneLoader.LoadDeadScene();
     }
 }
 

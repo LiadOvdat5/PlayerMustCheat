@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
+
 
 public class CountDownTimer : MonoBehaviour
 {
@@ -10,12 +10,14 @@ public class CountDownTimer : MonoBehaviour
     public Text countText;
 
     float currentTime = 0f;
+    SceneLoader sceneLoader;
 
 
     // Start is called before the first frame update
     void Start()
     {
         currentTime = startTime;
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,8 @@ public class CountDownTimer : MonoBehaviour
         if(currentTime <= 0 )
         {
             currentTime = 0;
-            //add player faild
+
+            sceneLoader.LoadDeadScene();
         }
     }
 }
