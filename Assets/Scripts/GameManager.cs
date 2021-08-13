@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] int savedDwarf = 0;
+    [SerializeField] private float gameOverTime = 1.5f;
     
-    public int dwarfNum; 
+    private int dwarfNum; 
+    private int savedDwarf = 0;
     
-
     SceneLoader sceneLoader;
 
     // Start is called before the first frame update
@@ -35,5 +35,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+    public IEnumerator LoseGame()
+    {
+        yield return new WaitForSeconds(gameOverTime);
+        sceneLoader.LoadWinScene();
+    }
+
+
 }

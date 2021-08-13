@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private bool isDead = false;
+    private bool canBeUsed = true;
     
     private Animator animator;
     Camera mainCamera;
@@ -26,7 +24,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
+        if (!canBeUsed)
         {
             return;
         }
@@ -69,11 +67,20 @@ public class Player : MonoBehaviour
 
             if (other.gameObject.tag == "Finish Target")
             {
-                Debug.Log("Dwarf saved ");
-                gameManager.AddSavedDwarf();
-                Destroy(gameObject);
+                SaveDwarf();
             }
         }
+    }
+
+    private void SaveDwarf()
+    {
+        Debug.Log("Dwarf saved ");
+        gameManager.AddSavedDwarf();
+        isCatching = false;
+        animator.SetBool("InAir", false);
+        animator.ResetTrigger("Pickup");
+        animator.SetTrigger("Finish");
+        canBeUsed = false;
     }
 
     private void Die()
@@ -82,13 +89,14 @@ public class Player : MonoBehaviour
         animator.SetBool("InAir", false);
         animator.ResetTrigger("Pickup");
         animator.SetTrigger("Die");
-        isDead = true;
+        canBeUsed = false;
+        StartCoroutine(gameManager.LoseGame());
     }
+    
 
     private void DestroyOnAnimationFinish()
     {
         Destroy(gameObject);
-        sceneLoader.LoadDeadScene();
     }
 }
 
