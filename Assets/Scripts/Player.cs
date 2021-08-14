@@ -4,21 +4,29 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private bool canBeUsed = true;
-    
-    private Animator animator;
-    Camera mainCamera;
     bool isCatching;
+    private bool hasCalledPlayerForCheating = false;
 
+    Animator animator; 
+    Camera mainCamera;
     GameManager gameManager;
-    SceneLoader sceneLoader;
+    AudioSource audioSource;
 
+    [SerializeField] private AudioClip[] pickupSounds;
+    [SerializeField] private AudioClip[] cheatingSounds;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip poofSound;
+    [SerializeField] private AudioClip winSound;
+    
+    
+    
     // Start is called before the first frame update
     void Awake()
     {
         animator = GetComponent<Animator>();
         mainCamera = FindObjectOfType<Camera>();
         gameManager = FindObjectOfType<GameManager>();
-        sceneLoader = FindObjectOfType<SceneLoader>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +48,7 @@ public class Player : MonoBehaviour
                     animator.SetTrigger("PickUp");
                     animator.SetBool("InAir", true);
                     isCatching = true;
+                    PlayRandomSound(pickupSounds);
                 }
             }
         }
@@ -69,6 +78,12 @@ public class Player : MonoBehaviour
             {
                 SaveDwarf();
             }
+
+            if (other.gameObject.tag == "Openings")
+            {
+                Debug.Log("Cheater");
+                CallPlayerForCheating();
+            }
         }
     }
 
@@ -81,18 +96,46 @@ public class Player : MonoBehaviour
         animator.ResetTrigger("Pickup");
         animator.SetTrigger("Finish");
         canBeUsed = false;
+        audioSource.Stop();
+        audioSource.PlayOneShot(winSound);
     }
 
     private void Die()
     {
+        gameManager.LoseGame();
+        
         isCatching = false;
         animator.SetBool("InAir", false);
         animator.ResetTrigger("Pickup");
         animator.SetTrigger("Die");
+        audioSource.Stop();
+        audioSource.PlayOneShot(deathSound);
         canBeUsed = false;
-        StartCoroutine(gameManager.LoseGame());
     }
-    
+
+    private void PlayRandomSound(AudioClip[] clips)
+    {
+        int randomIndex = Random.Range(0, clips.Length);
+        audioSource.Stop();
+        audioSource.PlayOneShot(clips[randomIndex]);
+    }
+
+    private void CallPlayerForCheating()
+    {
+        if (hasCalledPlayerForCheating)
+        {
+            return;
+        }
+
+        hasCalledPlayerForCheating = true;
+        PlayRandomSound(cheatingSounds);
+    }
+
+    private void PlayPoofSound()
+    {
+        audioSource.PlayOneShot(poofSound);
+    }
+
 
     private void DestroyOnAnimationFinish()
     {

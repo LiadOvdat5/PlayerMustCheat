@@ -35,10 +35,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator LoseGame()
+    public void LoseGame()
+    {
+        StartCoroutine(LoseGameRoutine());
+    }
+
+    private IEnumerator LoseGameRoutine()
     {
         yield return new WaitForSeconds(gameOverTime);
-        sceneLoader.LoadWinScene();
+        sceneLoader.LoadDeadScene();
     }
 
 

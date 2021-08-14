@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Finish Target
+  - Openings
   layers:
   - Default
   - TransparentFX
