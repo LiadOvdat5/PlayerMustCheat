@@ -72,3 +72,5 @@ crashlytics-build.properties
 
 !2D Renderer Data.asset #Except for 2D Renderer Data.asset
 !2D Renderer Data.asset.meta #Except for 2D Renderer Data.asset.meta
+!UniversalRenderPipelineAsset.asset #Except for UniversalRenderPipelineAsset.asset
+!UniversalRenderPipelineAsset.asset.meta #Except for UniversalRenderPipelineAsset.asset.meta
