@@ -369,6 +369,18 @@
     <Reference Include="Unity.2D.Common.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.5f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
     </Reference>
@@ -759,6 +771,30 @@
     <ProjectReference Include="Unity.2D.SpriteShape.Runtime.csproj">
       <Project>{D73202CD-B842-A6A6-81F9-3CD07BA4F7B7}</Project>
       <Name>Unity.2D.SpriteShape.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.csproj">
+      <Project>{6C26FA2B-37C0-C0D2-A1AB-F2EFE0797F93}</Project>
+      <Name>Unity.RenderPipelines.Core.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Shaders.csproj">
+      <Project>{E2B7EA97-15FA-63E5-BBC2-C0EA70922071}</Project>
+      <Name>Unity.RenderPipelines.Universal.Shaders</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipeline.Universal.ShaderLibrary.csproj">
+      <Project>{ACB48F64-8087-4C9E-8E68-1B0DC7C2E954}</Project>
+      <Name>Unity.RenderPipeline.Universal.ShaderLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.csproj">
+      <Project>{219065C6-0505-31E0-E3C4-D11214A1664B}</Project>
+      <Name>Unity.RenderPipelines.Core.ShaderLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.csproj">
+      <Project>{B8A93452-A06E-5005-A0DC-4B4C68FDCE2E}</Project>
+      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.RenderPipelines.Universal.Runtime.csproj">
+      <Project>{926F17A3-CC17-0A2F-CE19-7F3A8CB2425F}</Project>
+      <Name>Unity.RenderPipelines.Universal.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
