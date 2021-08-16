@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637646178976229357
-    m_Hash: 3749382329
+      ticks: 637647046775023567
+    m_Hash: 751375073
   m_LockFileStatus:
     m_FilePath: D:/Unity Projects/GitHub/PlayerMustCheat/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637646178977805142
-    m_Hash: 2668109035
+      ticks: 637647046779075171
+    m_Hash: 187569511
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -965,12 +965,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/com.unity.ide.vscode.git
         revision: b5ec9b38109e52b1b26597d521e4df75e042ebb9
         path: 
-    - packageId: com.unity.render-pipelines.universal@10.4.0
+    - packageId: com.unity.render-pipelines.universal@10.5.1
       testable: 0
       isDirectDependency: 1
-      version: 10.4.0
+      version: 10.5.1
       source: 1
-      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.render-pipelines.universal@10.4.0
+      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.render-pipelines.universal@10.5.1
       assetPath: Packages/com.unity.render-pipelines.universal
       name: com.unity.render-pipelines.universal
       displayName: Universal RP
@@ -1036,14 +1036,14 @@ m_PackageAssets:
       - name: com.unity.mathematics
         version: 1.1.0
       - name: com.unity.render-pipelines.core
-        version: 10.4.0
+        version: 10.5.1
       - name: com.unity.shadergraph
-        version: 10.4.0
+        version: 10.5.1
       resolvedDependencies:
       - name: com.unity.mathematics
         version: 1.1.0
       - name: com.unity.render-pipelines.core
-        version: 10.4.0
+        version: 10.5.1
       - name: com.unity.ugui
         version: 1.0.0
       - name: com.unity.modules.ui
@@ -1051,9 +1051,9 @@ m_PackageAssets:
       - name: com.unity.modules.imgui
         version: 1.0.0
       - name: com.unity.shadergraph
-        version: 10.4.0
+        version: 10.5.1
       - name: com.unity.searcher
-        version: 4.3.1
+        version: 4.3.2
       keywords:
       - graphics
       - performance
@@ -1073,13 +1073,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637511008730000000
+      datePublishedTicks: 637605794350000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: git+https://github.com/Unity-Technologies/Graphics.git
-        revision: e11ddbccf86bcd7ceaae2c0b8646420d2e53cf80
+        revision: 73f32e8fcc2d0cbf3b73a16a5e30eb5cede41576
         path: 
     - packageId: com.unity.test-framework@1.1.24
       testable: 0
@@ -3430,12 +3430,12 @@ m_PackageAssets:
         url: git@github.com:Unity-Technologies/Unity.Mathematics.git
         revision: 0a3dfafaf606098ea681de4c4be60f3aac63b773
         path: 
-    - packageId: com.unity.render-pipelines.core@10.4.0
+    - packageId: com.unity.render-pipelines.core@10.5.1
       testable: 0
       isDirectDependency: 0
-      version: 10.4.0
+      version: 10.5.1
       source: 1
-      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.render-pipelines.core@10.4.0
+      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.render-pipelines.core@10.5.1
       assetPath: Packages/com.unity.render-pipelines.core
       name: com.unity.render-pipelines.core
       displayName: Core RP Library
@@ -3576,20 +3576,20 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637511006970000000
+      datePublishedTicks: 637605791650000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: git+https://github.com/Unity-Technologies/Graphics.git
-        revision: e11ddbccf86bcd7ceaae2c0b8646420d2e53cf80
+        revision: 73f32e8fcc2d0cbf3b73a16a5e30eb5cede41576
         path: 
-    - packageId: com.unity.shadergraph@10.4.0
+    - packageId: com.unity.shadergraph@10.5.1
       testable: 0
       isDirectDependency: 0
-      version: 10.4.0
+      version: 10.5.1
       source: 1
-      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.shadergraph@10.4.0
+      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.shadergraph@10.5.1
       assetPath: Packages/com.unity.shadergraph
       name: com.unity.shadergraph
       displayName: Shader Graph
@@ -3706,12 +3706,12 @@ m_PackageAssets:
         verified: 10.4.0
       dependencies:
       - name: com.unity.render-pipelines.core
-        version: 10.4.0
+        version: 10.5.1
       - name: com.unity.searcher
-        version: 4.3.1
+        version: 4.3.2
       resolvedDependencies:
       - name: com.unity.render-pipelines.core
-        version: 10.4.0
+        version: 10.5.1
       - name: com.unity.ugui
         version: 1.0.0
       - name: com.unity.modules.ui
@@ -3719,7 +3719,7 @@ m_PackageAssets:
       - name: com.unity.modules.imgui
         version: 1.0.0
       - name: com.unity.searcher
-        version: 4.3.1
+        version: 4.3.2
       keywords: []
       registry:
         id: main
@@ -3733,13 +3733,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637511007220000000
+      datePublishedTicks: 637605793850000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: git+https://github.com/Unity-Technologies/Graphics.git
-        revision: e11ddbccf86bcd7ceaae2c0b8646420d2e53cf80
+        revision: 73f32e8fcc2d0cbf3b73a16a5e30eb5cede41576
         path: 
     - packageId: com.unity.2d.common@4.0.3
       testable: 0
@@ -3896,12 +3896,12 @@ m_PackageAssets:
         url: https://github.cds.internal.unity3d.com/unity/2d.git
         revision: 7d7470f4ca0ea8353d4c9640b3b6ae9d1ebd9c1d
         path: 
-    - packageId: com.unity.searcher@4.3.1
+    - packageId: com.unity.searcher@4.3.2
       testable: 0
       isDirectDependency: 0
-      version: 4.3.1
+      version: 4.3.2
       source: 1
-      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.searcher@4.3.1
+      resolvedPath: D:\Unity Projects\GitHub\PlayerMustCheat\Library\PackageCache\com.unity.searcher@4.3.2
       assetPath: Packages/com.unity.searcher
       name: com.unity.searcher
       displayName: Searcher
@@ -3964,13 +3964,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637272602300000000
+      datePublishedTicks: 637509898070000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.searcher.git
-        revision: 56c3321cb776740e60e242e6c72cb5b4e8245256
+        revision: 798bfb84c8f09f7788a3a88c3c16d72c50451530
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
