@@ -17,9 +17,21 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip poofSound;
     [SerializeField] private AudioClip winSound;
+
     
+
+    public float mouseMoveSpeed = 0.2f;
+    public float keysMoveSpeed = 10f;
+    public float maxDistance = 10;
+
     
-    
+
+    Rigidbody2D rb;
+    Vector3 mousePos;
+    Vector2 position = new Vector2(0f, 0f);
+    Vector3 lastMousePos;
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,15 +39,23 @@ public class Player : MonoBehaviour
         mainCamera = FindObjectOfType<Camera>();
         gameManager = FindObjectOfType<GameManager>();
         audioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody2D>();
+        lastMousePos = Input.mousePosition;
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+        lastMousePos = Input.mousePosition;
+        
+
         if (!canBeUsed)
         {
             return;
         }
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -60,11 +80,52 @@ public class Player : MonoBehaviour
 
         if (isCatching && Input.GetMouseButton(0))
         {
-            Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0;
-            transform.position = mouseWorldPos;
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //position = Vector2.Lerp(transform.position, mousePos, mouseMoveSpeed);
+            position = Vector2.MoveTowards(transform.position, mousePos, maxDistance * Time.deltaTime);
+            
         }
     }
+
+    public Vector3 mouseDelta
+    {
+        get
+        {
+            return Input.mousePosition - lastMousePos;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        /*Debug.Log(mouseDelta);
+        if(mouseDelta.x > 25f || mouseDelta.x < -25f || mouseDelta.y > 25f || mouseDelta.y < -25f)
+        {
+            isCatching = false;
+            animator.SetBool("InAir", false);
+        }*/
+
+        if (isCatching)
+        {
+            rb.MovePosition(position);
+        }
+        else
+        {
+            Move();
+        }
+    }
+
+    private void Move()
+    {
+        var deltaX = Input.GetAxis("Horizontal") * keysMoveSpeed * Time.deltaTime;
+        var newXPos = transform.position.x + deltaX;
+
+        var deltaY = Input.GetAxis("Vertical") * keysMoveSpeed * Time.deltaTime;
+        var newYPos = transform.position.y + deltaY;
+
+        transform.position = new Vector2(newXPos, newYPos);
+
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

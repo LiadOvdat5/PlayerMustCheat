@@ -21,6 +21,7 @@ public class FollowMousePos : MonoBehaviour
         Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
         transform.position = mouseWorldPos;
+        
     }
 
 }
